@@ -45,7 +45,7 @@
 - 한 주동안 **풀이할 알고리즘 문제** 들이 정해지고 `주차 별 issue` 에 올라오면 😈 **수**요일까지 자유롭게 풀이한다.
 
 - 토요일 전까지 팀원들은 다른 사람이 `PR(Pull Request)` 한 문제 풀이 코드를 확인한다.
-	- 반드시 팀원들 중 한 명 이상이 `Rivew` 해야 `master` 브랜치에 `Merge` 될 수 있다.
+	- 반드시 팀원들 중 한 명 이상이 `Riview` 해야 `master` 브랜치에 `Merge` 될 수 있다.
 	- 개선 사항, 오류를 발견하면 자유롭게 코멘트와 함께 리뷰하도록 한다.
 
 - 풀지 못한 문제, 풀었지만 풀이과정에 도움이 필요한 문제가 있다면 `주차 별 issue` 에 댓글을 남긴다.
@@ -117,7 +117,7 @@
 	- 문제번호_문제이름_이니셜.java
 		- EX) 2577_숫자의_개수_PDS.java
 
-- 😈 **기타 문제**
+- **기타 문제**
 	- 추가로 풀게 될 시 협의
 
 
@@ -175,7 +175,8 @@
 
 - 우리가 공통적으로 사용하는 이 저장소에 와서 `master` 브랜치에 `Pull Request` 를 합니다.
 
-
+-  `commit` 은 반드시 한 문제 단위로 합니다. 한번 `Pull Request` 해두면 `push` 할 때 마다 `Pull Request` 에 커밋 이력이 쌓일 것입니다.
+ 
 
 <br>
 
@@ -204,12 +205,9 @@
 		- EX) fix BFS란? / 박동석 / 일부 내용 수정
 
 
-- 수정에 대한 상세한 내용은 `Pull Request` 에 작성해주시면 됩니다.
-
-
 **Pull Request 이름 규칙**
 
-- 기본적으로 commit 이름과 같게 하며 `1PR`에 하나의 문제만 포함되게함을 권장합니다. => 코드 리뷰 시 편함
+- [1주차] 이름
 
 
 
@@ -370,6 +368,287 @@ $ git config --list
 <br>
 
 
+---
+
+<details>
+<summary>😃 [제 코드를 올리고 싶어요!]</summary>
+<div markdown="1">
+
+먼저 앞으로 `Git Bash` 에서 활용할 리눅스 명령어 2개에 대해서 간단하게 알아봅시다.
+
+```
+$ ls : 현재 디렉터리의 모든 파일과 폴더 목록을 보여줍니다.
+$ cd .. : 현재 디렉터리 기준 바로 이전 디렉터리로 이동합니다.
+$ cd /경로/경로 : /경로/경로 디렉터리로 이동합니다.
+```
+
+#### Git Clone 하기
+	
+1. 원격 저장소 주소를 복사합니다.
+	
+![git1](https://user-images.githubusercontent.com/76927397/147423748-70739ea0-2671-473c-84ba-58c877b1880b.PNG)
+	
+
+2. `Git bash` 를 실행시키고 원하는 디렉토리로 이동합니다. 저는 C드라이브의 algostudy 폴더로 하겠습니다.
+
+```bash
+$ cd /c/algostudy/
+```
+
+3. `git clone` 명령어를 통해 `원격 저장소` 로부터 `로컬 저장소` 를 생성합니다. 
+	
+```bash
+$ git clone https://github.com/WCDI-DGHG/algo-study.git	
+```
+
+이런식으로 메시지가 나올겁니다.
+	
+```bash
+Cloning into 'algo-study'...
+remote: Enumerating objects: 9, done.
+remote: Counting objects: 100% (9/9), done.
+remote: Compressing objects: 100% (5/5), done.
+remote: Total 9 (delta 1), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (9/9), 6.09 KiB | 692.00 KiB/s, done.
+Resolving deltas: 100% (1/1), done.
+```
+
+ls 명령어로 algo-study 폴더가 생성되었음을 확인합니다.
+	
+![git3](https://user-images.githubusercontent.com/76927397/147424005-e612918c-93e8-4298-bb71-695104d0277b.PNG)
+
+	
+cd 명령어로 `로컬 저장소` 인 `algostudy` 폴더로 이동해봅시다.
 
 
+![git4](https://user-images.githubusercontent.com/76927397/147424208-f2250683-2464-47b2-8a05-c506667dca1e.PNG)
+	
+위 사진처럼 `(master)` 라는 것이 보이시나요? 이게 `branch` 입니다. 
+	
+현재 로컬저장소에서  `master` 브랜치하에 있다는 소리입니다.
+
+위에서 각자 자신의 브랜치를 만들어 풀이를 올린다고 했었습니다. 
+	
+자신만의 브랜치를 만들고 그 브랜치로 이동해봅시다.
+
+
+**브랜치 생성 - 이니셜로 합시다.**
+
+```bash
+$ git branch pds
+```
+
+**브랜치 확인 - 방금 만든 브랜치가 나오면 성공**
+
+```bash
+$ git branch	
+```
+	
+**브랜치 이동 - 내 브랜치로 이동해줍니다.**
+
+```bash
+$ git checkout pds
+```
+	
+![git5](https://user-images.githubusercontent.com/76927397/147424409-1925f81e-1ddb-4b14-9c11-b5c926f68ce8.PNG)
+
+
+	
+이번에 풀었던 프로그래머스 **짝수와 홀수** 문제를 예시로 올려보겠습니다.
+
+디렉터리 구조 규칙에 따라 /programmers/lv1 폴더에 문제를 올릴 것입니다.
+
+![git6](https://user-images.githubusercontent.com/76927397/147424567-ad63b47d-cd03-436e-a05f-dfadaa9640cb.PNG)
+
+
+**다시 `Git Bash` 로 돌아와서 `git status` 명령어를 쳐줍시다**
+
+```shell
+$ git status	
+```
+
+![git7](https://user-images.githubusercontent.com/76927397/147424809-c81c310f-fb55-448a-a459-9354b7089651.PNG)
+
+뭔가 추가되었다는 것을 보여줍니다.
+
+지금은 programmers 라는 폴더 자체도 처음 만들기 때문에 저런식으로 나오지만 앞으로는 내가 추가하고 수정한 파일들에 대해서 잘 보여줄 것입니다.
+
+**이미지 밑부분을 보면 `git add` 를 하라고 되어있습니다. `git add` 를 해봅시다**
+
+우리가 **커밋**할 파일을 추가해주는 작업입니다.
+
+경로를 하나하나 입력할 필요는 없습니다 `Tab` 키를 잘 활용해보세요
+	
+```shell
+git add programmers/lv1/짝수와_홀수_PDS.java.java
+```
+
+위와 같이 `add` 할 파일을 직접 지정해줄 수도 있고 `git add .` 으로 변경사항이 있는 모든 파일을 추가할 수도 있습니다.
+
+**git status 명령어를 다시 한번 사용해볼까요?**
+
+
+![git8](https://user-images.githubusercontent.com/76927397/147425629-cd8617e4-9913-4f04-a8e3-6e45da356411.PNG)
+
+빨간 밑줄 부분은 한글이름 파일이라 그런거니 당황하지 않으셔도 됩니다.
+
+`커밋`될 파일이 준비가 된 것입니다.
+
+
+**git commit 명령어로 커밋해줍니다.** 
+	
+> git commit -m "커밋 메시지"
+
+```shell
+$ git commit -m "add [프로그래머스] 짝수와 홀수 / 박동석"
+```
+	
+**git push 명령어로 원격 저장소에 업로드 해줍니다.** 
+	
+> git push 원격저장소(origin) 브랜치
+	
+```shell
+$ git push origin pds	
+```
+	
+![git9](https://user-images.githubusercontent.com/76927397/147426240-8bb7e945-3e0f-4bcf-8c6d-7a94520b1f2f.PNG)
+
+최초로 pds 브랜치를 만들고 push했기 떄문에 원격저장소에 pds 브랜치가 생성되었다는 것을 확인할 수 있습니다.
+	
+
+원격저장소로 와보면 pds 브랜치가 생성되어있음을 확인할 수 있습니다.
+
+![git10](https://user-images.githubusercontent.com/76927397/147426360-34f7ac82-6bc2-4991-845c-083e5e1d478f.PNG)
+
+이제 우리는 문제풀이를 추가한 내역을 Pull Request 를 통해 `master` 브랜치에 `merge` 요청을 하면 됩니다.
+
+	
+</div>
+</details>
+
+---
+
+
+<br>
+  
+ 
+---
+
+<details>
+<summary>😃 [제 코드를 올리고 싶어요! - 코드 요약본]</summary>
+<div markdown="1">
+
+위의 과정을 통해 `clone` 하고 `branch` 생성에 성공했다면 앞으로는 이 부분만 참고해서 코드를 올리면 될 것 같습니다.
+
+0. Gitbash 의 원격저장소에 와서 내 브랜치로 되어있는지 확인한다.
+
+```shell
+$ git checkout 브랜치이름
+```
+	
+1. 코드를 적절한 디렉토리에 추가/수정한다.
+
+2. `git add` 명령어 수행
+
+```bash
+$ git add .
+```
+	
+3. `git commit -m "메시지"` 로 변경 commit!
+
+```bash
+$ git commit -m "add [프로그래머스] 문제 이름 / 내이름"	
+```
+
+4. `git push` 명령어를 통해 원격 저장소에 업로드
+
+```bash
+$ git push origin 브랜치이름	
+```
+		
+</div>
+</details>
+
+---
+
+
+<br>
+  
+  
+---
+
+<details>
+<summary>😃 [Pull Request 하기]</summary>
+<div markdown="1">
+
+commit & push 하여 원격저장소 나의 브랜치에 문제풀이를 올렸다면 
+
+master 브랜치에 병합 요청을 해보겠습니다.
+
+#### 왜 하나요?
+
+- Pull request 내역을 통해 문제풀이를 팀원들과 공유하여 코드리뷰를 하기 위해
+
+- 내 브랜치에는 내 코드만, matser 브랜치에는 우리 모두의 코드를 한눈에 보기 위해
+
+
+**저장소의 Pull Request 항목으로 와서 빨간박스 둘 중 하나 아무거나 클릭해줍니다.**
+
+
+![git11](https://user-images.githubusercontent.com/76927397/147427253-7fbfb059-d745-4ad8-a0cb-372e6c2c5886.PNG)
+
+
+밑으로 내리다 보면 다음과 같이 변경 내역을 모두 확인할 수 있습니다.
+
+![git13](https://user-images.githubusercontent.com/76927397/147427491-88ea9042-d08d-4577-bd55-9864e59a0a08.PNG)
+
+	
+	
+**어디에서 어디로 Pull Request 하는지 잘 확인하고 해줍니다.** 
+
+![git12](https://user-images.githubusercontent.com/76927397/147427425-ff4ea820-a335-4b61-bcbd-69ce7e72d97b.PNG)
+
+
+Pull Request 끝! 쉽죠? 그나저나 커밋 메시지 규칙이랑 풀리퀘스트 이름 규칙 틀렸네요
+
+Pull Request 는 한 주간 한 번 하시면 됩니다. 커밋 푸쉬한 내 코드들은 알아서 여기 쌓일 것입니다.
+	
+</div>
+</details>
+
+---
+
+
+<br>
+
+
+---
+
+<details>
+<summary>😃 [ETC]</summary>
+<div markdown="1">
+
+#### 커밋을 잘못했어요 고치고 싶어요!
+
+코드 복붙 실수나 메시지를 잘못작성했거나 이미 커밋했는데 뭘 더 추가하고 싶거나 수 있습니다.
+
+**`git commit -amend` 명령어 사용하기**
+
+변경이 있다면 `git add` 를 해주고
+
+커밋 명령어에 -amend 를 붙여주면 바로 이전 커밋을 덮어써주게 됩니다.
+
+
+#### 이미 예전에 올린 부분인데 다시 수정하고 싶어요!
+
+상관없습니다 커밋 규칙에 맞게 commit push 하시면 Pull Request에 변경이력과 함께 쌓입니다.
+ 	
+	
+</div>
+</details>
+
+---
+
+
+<br>
 	
