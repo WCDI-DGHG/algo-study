@@ -279,6 +279,12 @@ $ git config --global user.email "yourgithub@email"
 
 ```
 
+#### 한글깨짐 고치기
+
+```shell
+$ git config --global core.quotepath false
+```
+	
 
 **다음과 같은 명령어로 변경을 확인합니다.**
 
@@ -489,8 +495,7 @@ git add programmers/lv1/짝수와_홀수_PDS.java.java
 
 
 ![git8](https://user-images.githubusercontent.com/76927397/147425629-cd8617e4-9913-4f04-a8e3-6e45da356411.PNG)
-
-빨간 밑줄 부분은 한글이름 파일이라 그런거니 당황하지 않으셔도 됩니다.
+	
 
 `커밋`될 파일이 준비가 된 것입니다.
 
