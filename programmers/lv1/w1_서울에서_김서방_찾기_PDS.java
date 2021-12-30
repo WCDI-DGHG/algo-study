@@ -1,4 +1,4 @@
-public class 서울에서_김서방_찾기 {
+public class Solution {
   public String solution(String[] seoul) {
     for (int i = 0; i < seoul.length; i++) {
       if ("Kim".equals(seoul[i])) {
