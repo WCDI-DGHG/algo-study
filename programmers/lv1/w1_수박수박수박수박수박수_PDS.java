@@ -1,5 +1,4 @@
-public class 수박수박 {
-
+public class Solution {
   public String solution(int n) {
     String answer = "";
     String[] text = {"수", "박"};
