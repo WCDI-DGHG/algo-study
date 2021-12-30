@@ -1,4 +1,4 @@
-public class 가운데_글자_가져오기 {
+public class Solution {
   public String solution(String s) {
     int len = s.length();
     if (len % 2 == 0) {
