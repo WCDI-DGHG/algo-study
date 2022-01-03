@@ -1,9 +1,3 @@
-/* 
-같은 숫자는 싫어
-https://programmers.co.kr/learn/courses/30/lessons/12906
-Code_By_Goun
-*/
-
 import java.util.*;
 
 public class Solution {
