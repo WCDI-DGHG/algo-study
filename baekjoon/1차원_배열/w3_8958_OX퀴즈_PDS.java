@@ -12,7 +12,7 @@ public class Main {
         for (int i = 1; i < arr.length; i++) {
             arr[i] = arr[i - 1] + i;
         }
-
+ 
         int len = Integer.parseInt(br.readLine());
 
         for (int i = 0; i < len; i++) {
