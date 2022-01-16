@@ -8,12 +8,11 @@ public class Main {
 		int H = sc.nextInt();
 		int M = sc.nextInt();
 		
-		// 45분 전에 일어나서 45분 자니,,,?
 		if(M < 45) {
 			H--;
 			M = 60-(45-M);
-			if(H < 24) {
-				H = 24-H; // 어떻게 시도해야하는지,,,?
+			if(H == -1) {
+				H = H+24;
 			}
 		}else {
 			M = M-45;
