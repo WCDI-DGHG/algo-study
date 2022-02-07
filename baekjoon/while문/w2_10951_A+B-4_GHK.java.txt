@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
+		
+		//hasNextInt() 의 경우 입력값이 정수일경우 true를 반환하며 
+		//정수가 아닐경우 바로 예외를 던지며 더이상의 입력을 받지 않고 
+		//hasNextInt()에서 false를 반환하면서 반복문이 종료
+		while(in.hasNextInt()) {
+			int a = in.nextInt();
+			int b = in.nextInt();
+			
+			System.out.println(a+b);
+		}
+		in.close();
+	}
+
+}

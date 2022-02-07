@@ -1,0 +1,12 @@
+public class Main {
+
+	public static void main(String[] args) {
+		
+// 특수 문자(이스케이프 문자):로 특수문자 앞에는 \를 함께 사용해야함.
+		System.out.println("\\    /\\");
+		System.out.println(" )  ( ')");
+		System.out.println("(  /  )");
+		System.out.println(" \\(__)|");
+		
+	}
+}
