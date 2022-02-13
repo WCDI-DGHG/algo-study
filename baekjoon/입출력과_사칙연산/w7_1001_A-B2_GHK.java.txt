@@ -1,0 +1,27 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+public class Main {
+
+	public static void main(String[] args) throws IOException {
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		String A = br.readLine();
+		
+		//" "를 기준으로 문자열 나누기
+		String[] arr = A.split(" ");
+		
+		int num1 = Integer.parseInt(arr[0]);
+		int num2 = Integer.parseInt(arr[1]);
+		
+		bw.write(num1-num2+"\n");
+		
+		
+		bw.flush();
+		bw.close();
+	}
+}
