@@ -196,39 +196,38 @@ public class Main {
 
 ```java
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-        
-		int node = sc.nextInt();
-		int edge = sc.nextInt();
-		int start = sc.nextInt();
-		
-		boolean visited[] = new boolean[node + 1]; 
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-		int[][] adjArray = new int[n+1][n+1];
+        int node = sc.nextInt();
+        int edge = sc.nextInt();
+        int start = sc.nextInt();
 
-		for(int i = 0; i < m; i++) {
-			int v1 = sc.nextInt();
-			int v2 = sc.nextInt();
+        boolean visited[] = new boolean[node + 1];
 
-			adjArray[v1][v2] = 1;
-			adjArray[v2][v1] = 1;
-		}
+        int[][] adjArray = new int[node + 1][node + 1];
 
-		DFS(start, adjList, visited);
-	}
-	
-	public static void DFS(int start, int[][] adjArray, boolean[] visited) {
-		visited[start] = true;
-		System.out.print(start + " ");
+        for (int i = 0; i < edge; i++) {
+            int v1 = sc.nextInt();
+            int v2 = sc.nextInt();
 
-		for(int i = 1; i < adjArray.length; i++) {
-			if(adjArray[start][i] == 1 && !visited[i]) {
-				DFS(i, adjArray, visited);
-			}
-		}
-	}
+            adjArray[v1][v2] = 1;
+            adjArray[v2][v1] = 1;
+        }
 
+        DFS(start, adjArray, visited);
+    }
+
+    public static void DFS(int start, int[][] adjArray, boolean[] visited) {
+        visited[start] = true;
+        System.out.print(start + " ");
+
+        for (int i = 1; i < adjArray.length; i++) {
+            if (adjArray[start][i] == 1 && !visited[i]) {
+                DFS(i, adjArray, visited);
+            }
+        }
+    }
 }
 ```
 
@@ -298,55 +297,54 @@ public class Main {
 
 ```java
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-		int node = sc.nextInt(); 
-		int edge = sc.nextInt();
-		int start = sc.nextInt();  
+        int node = sc.nextInt();
+        int edge = sc.nextInt();
+        int start = sc.nextInt();
 
-		boolean visited[] = new boolean[node + 1]; 
+        boolean visited[] = new boolean[node + 1];
 
-		LinkedList<Integer>[] adjList = new LinkedList[node + 1];
+        LinkedList<Integer>[] adjList = new LinkedList[node + 1];
 
-		for (int i = 0; i <= node; i++) {
-			adjList[i] = new LinkedList<Integer>();
-		}
+        for (int i = 0; i <= node; i++) {
+            adjList[i] = new LinkedList<Integer>();
+        }
 
-		for (int i = 0; i < edge; i++) {
-			int v1 = sc.nextInt();
-			int v2 = sc.nextInt();
-			adjList[v1].add(v2);
-			adjList[v2].add(v1);
-		}
+        for (int i = 0; i < edge; i++) {
+            int v1 = sc.nextInt();
+            int v2 = sc.nextInt();
+            adjList[v1].add(v2);
+            adjList[v2].add(v1);
+        }
 
-		for (int i = 1; i <= n; i++) { 
-			Collections.sort(adjList[i]); 
-		}
+        for (int i = 1; i <= node; i++) {
+            Collections.sort(adjList[i]);
+        }
 
-		BFS(start, adjList, visited);
-	}
+        BFS(start, adjList, visited);
+    }
 
-	public static void BFS(int start, LinkedList<Integer>[] adjList, boolean[] visited) {
-		Queue<Integer> queue = new LinkedList<Integer>();
-		visited[start] = true; 
-		queue.add(start);
+    public static void BFS(int start, LinkedList<Integer>[] adjList, boolean[] visited) {
+        Queue<Integer> queue = new LinkedList<Integer>();
+        visited[start] = true;
+        queue.add(start);
 
-		while(queue.size() != 0) { 
-			start = queue.poll(); 
-			System.out.print(start + " ");
+        while(queue.size() != 0) {
+            start = queue.poll();
+            System.out.print(start + " ");
 
-			Iterator<Integer> iter = adjList[v].listIterator();
-			while(iter.hasNext()) { 
-				int adj = iter.next(); 
-				if(!visited[adj]) { 
-					visited[adj] = true; 
-					queue.add(adj); 
-				} 
-			}
-		}
-	}
-
+            Iterator<Integer> iter = adjList[start].listIterator();
+            while(iter.hasNext()) {
+                int adj = iter.next();
+                if(!visited[adj]) {
+                    visited[adj] = true;
+                    queue.add(adj);
+                }
+            }
+        }
+    }
 }
 ```
 
@@ -354,51 +352,44 @@ public class Main {
 
 ```java
 public class Main {
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-		int node = sc.nextInt(); 
-		int edge = sc.nextInt();
-		int start = sc.nextInt();  
+        int node = sc.nextInt();
+        int edge = sc.nextInt();
+        int start = sc.nextInt();
 
-		boolean visited[] = new boolean[node + 1]; 
+        boolean visited[] = new boolean[node + 1];
 
-		LinkedList<Integer>[] adjList = new LinkedList[node + 1];
+        int[][] adjArray = new int[node + 1][node + 1];
 
-		for (int i = 0; i <= node; i++) {
-			adjList[i] = new LinkedList<Integer>();
-		}
+        for (int i = 0; i < edge; i++) {
+            int v1 = sc.nextInt();
+            int v2 = sc.nextInt();
 
-		for (int i = 0; i < edge; i++) {
-			int v1 = sc.nextInt();
-			int v2 = sc.nextInt();
-			adjList[v1].add(v2);
-			adjList[v2].add(v1);
-		}
+            adjArray[v1][v2] = 1;
+            adjArray[v2][v1] = 1;
+        }
 
-		for (int i = 1; i <= n; i++) { 
-			Collections.sort(adjList[i]); 
-		}
+        BFS(start, adjArray, visited);
+    }
 
-		BFS(start, adjList, visited);
-	}
+    public static void BFS(int start, int[][] adjArray, boolean[] visited) {
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(start);
+        visited[start] = true;
 
-	public static void BFS(int start, int[][] adjArray, boolean[] visited) {
-		Queue<Integer> queue = new LinkedList<>();
-		queue.add(start);
-		visited[start] = true;
-
-		while (!queue.isEmpty()) {
-			start = queue.poll();
-			System.out.print(start + " ");
-			for (int i = 1; i < adjArray.length; i++) {
-				if (adjArray[start][i] == 1 && !visited[i]) {
-					queue.add(i);
-					visited[i] = true;
-				}
-			}
-		}
-	}
+        while (!queue.isEmpty()) {
+            start = queue.poll();
+            System.out.print(start + " ");
+            for (int i = 1; i < adjArray.length; i++) {
+                if (adjArray[start][i] == 1 && !visited[i]) {
+                    queue.add(i);
+                    visited[i] = true;
+                }
+            }
+        }
+    }
 }
 ```
 
