@@ -1,0 +1,27 @@
+[프로그래머스] lv1 하샤드 수
+
+class Solution {
+	    public boolean solution(int x) {
+		//자릿수의 합 구할 변수 
+		int sum = 0;
+		//x의 수를 나누기 위해 x값을 저장할 변수
+		int y = x;
+		
+		// x가 0이 될 때까지 각 자릿수를 구해 더한다.
+		while(x != 0) {
+		//sum은 누적되는 변수, 변수에 값을 담고 10으로 나누어 자릿수가 1의 자리 0이 될때까지 반복
+			sum = sum + x % 10;
+			x = x/10;
+		}
+		
+		//원래의 값에 자릿수를 더한 sum을 나눈 나머지가 0이면 true를 반환
+		if(y % sum == 0) {
+			return true;
+		
+		//나머지가 0이 아니면 false를 반환
+		}else {
+			return false;
+		}
+	}
+
+}
