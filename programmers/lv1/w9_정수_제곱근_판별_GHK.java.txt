@@ -1,0 +1,26 @@
+[프로그래머스] lv1 정수 제곱근 판별
+
+class Solution {
+    public long solution(long n) {
+    	//문제가 Math클래스에 대해 물어보는 유형
+    	
+    	/*
+    	 * Math.sqrt(숫자) => 제곱근을 구해주는 함수
+    	 * Math.pow(숫자, 거듭제곱 횟수) => 거듭제곱을 구해주는 함수
+    	 * 
+    	 * 메소드들은 입력값과 출력값이 모두 double형이다.
+    	 */
+    	
+    	//Math.sqrt() 메소드는 double형이므로 형변환하여 제곱근을 구하여 sqrt에 넣어준다.
+        long sqrt = (long) Math.sqrt(n);
+        
+        //Math.pow 함수를 사용해 거듭제곱근을 구하여 n에 넣은 후, 제곱근에 +1을 하여 다시 거듭제곱 후 반환한다.
+        if(n == (long)(Math.pow(sqrt, 2))) {
+        	return (long)(Math.pow(sqrt+1, 2));
+        
+        }else {
+        	return -1;
+        }
+        
+    }
+}

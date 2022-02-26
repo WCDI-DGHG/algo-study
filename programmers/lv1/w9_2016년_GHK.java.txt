@@ -1,0 +1,22 @@
+[프로그래머스] lv1 - 2016년
+
+class Solution {
+    public String solution(int a, int b) {
+        String[] Day = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
+        //2016년 1월부터 12월까지의 일 수
+        int[] Moth = {31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+        
+        //모든 날짜를 담는 date
+        int date = 0;
+        //배열이 0부터 시작하므로 a-1까지 모든 월의 일수를 더한다.
+        for (int i = 0; i < a-1; i++) {
+			date = date + Moth[i];
+		}
+        
+        //b-1를 안 할 경우 1월 1일이 지나가므로 b-1을 더해 모든 날짜를 더한 값을 담는다.
+        date = date + (b-1);
+        
+        //요일을 계산하기 위해 일주일을 반복하기 위해 7을 나눈다.
+        return Day[date % 7];
+	}
+}
