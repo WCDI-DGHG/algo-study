@@ -1,7 +1,8 @@
 import java.util.Scanner;
+
 public class Main {
+
 	public static void main(String[] args) {
-		
 		Scanner in = new Scanner(System.in);
 		
 		// 1<= k, n<=14 조건의 아파트
@@ -19,3 +20,15 @@ public class Main {
 				APT[i][j] = APT[i][j - 1] + APT[i - 1][j];
 			}
 		}
+		
+		// 해당 집에 거주민 수를 출력
+		int T = in.nextInt();
+		for (int i = 0; i < T; i++) {
+			int k = in.nextInt();
+			int n = in.nextInt();
+			System.out.println(APT[k][n]);
+		}
+		
+	}
+
+}
