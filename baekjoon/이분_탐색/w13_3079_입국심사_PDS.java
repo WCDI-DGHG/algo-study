@@ -1,51 +1,40 @@
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.StringTokenizer;
 
 public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	static int[] times;
+        int[] inputArr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
 
-	static long findMinTime(int N, long M) {
-		long low = 0;
-		long high = times[N - 1] * M;
-		long min = Long.MAX_VALUE;
+        int[] simSaDae = new int[inputArr[0]];
+        int friendsNum = inputArr[1];
 
-		while (low <= high) {
-			long mid = (low + high) / 2;
-			long sum = 0;
+        for (int i = 0; i < inputArr[0]; i++) {
+            simSaDae[i] = Integer.parseInt(br.readLine());
+        }
 
-			for (int time : times) {
+        Arrays.sort(simSaDae);
+        System.out.println(search(simSaDae, friendsNum));
+    }
 
-				if (sum >= M) break;
-				sum += mid / time;
-			}
+    private static long search(int[] simSaArray, int friendsNum) {
+        long left = 0;
+        long right = (long) simSaArray[0] * friendsNum;
+        long result = Long.MAX_VALUE;
+        while (left <= right) {
+            long mid = (left + right) / 2;
+            long sumOfFriends = Arrays.stream(simSaArray).mapToLong(value -> (mid / value)).sum();
 
-			if (sum >= M) {
-				min = Math.min(min, mid);
-				high = mid - 1;
-			} else if (sum < M) {
-				low = mid + 1;
-			}
-		}
-
-		return min;
-	}
-
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
-
-		int N = Integer.parseInt(st.nextToken());
-		long M = Integer.parseInt(st.nextToken());
-		times = new int[N];
-
-		for (int i = 0; i < N; i++) {
-			times[i] = Integer.parseInt(br.readLine());
-		}
-		Arrays.sort(times);
-
-		System.out.println(findMinTime(N, M));
-	}
-
+            if (sumOfFriends >= friendsNum) {
+                right = mid - 1;
+                result = Math.min(result, mid);
+                continue;
+            }
+            left = mid + 1;
+        }
+        return result;
+    }
 }
