@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		int n = sc.nextInt();
+		sc.close();
+			/* *********
+			 * x*******
+			 * xx*****
+			 * xxx***
+			 * XXXX*
+		             */	
+	
+		for (int i = 1; i <= n; i++) {
+			//n이 5일경우
+			//0
+			//x
+			//xx
+			//xxx
+			//xxxx
+			for (int j = 1; j <= i; j++) {
+			System.out.print(" ");
+			}
+		
+			//*은 2n-1 만약 5일때 역순으로 정렬
+			//
+			//*********
+			//*******
+			//*****
+			//***
+			//*
+			//역순 어떻게 해야하지 j-- 는 무한루프
+			//홀수의 경우를 생각해야한다...
+			//백준 통과 못함...
+			for (int j = 1; j <= n-i; j++) {
+				System.out.print("**");
+			}
+			System.out.print("*");
+			System.out.println();
+		}
+	}
+}
