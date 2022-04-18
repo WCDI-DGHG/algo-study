@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+	
+		int n = sc.nextInt();
+		sc.close();
+	
+		/* xxxx*
+		   xxx***
+		   xx*****
+		   x*******
+		   *********
+		 */	
+	
+		for (int i = 1; i <= n; i++) {
+			//공백을 역순으로 n의 길이의 -1 
+			//n이 5일경우
+			//xxxx
+			//xxx
+			//xx
+			//x
+			//0
+			for (int j = 1; j <= n - i; j++) {
+				System.out.print(" ");
+			}
+		
+			//*은 2n-1 만약 5일때 => n번째 줄이므로 첫번째 for문의 i를 대입
+			//*
+			//***
+			//*****
+			//*******
+			//*********
+			for (int j = 1; j <= 2*i-1; j++) {
+				System.out.print("*");
+			}
+		
+			System.out.println();
+		}
+	}
+
+}
